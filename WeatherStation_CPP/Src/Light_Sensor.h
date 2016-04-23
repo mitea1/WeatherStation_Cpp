@@ -1,31 +1,33 @@
 /*
- * UART_Print.h
+ * Light_Sensor.h
  *
  *  Created on: Mar 16, 2016
  *      Author: Adrian
  */
-#ifndef UART_PRINT_H_
-#define UART_PRINT_H_
+#ifndef LIGHT_SENSOR_H_
+#define LIGHT_SENSOR_H_
 
+/* C to C++ Wrapper */
 #ifdef __cplusplus
 extern "C" {
 #endif /* __cplusplus */
 
 /*----- Header-Files -------------------------------------------------------*/
-#include "stm32l1xx.h"
-#include "stm32l1xx_rcc.h"
-#include "stm32l1xx_gpio.h"
-#include "stm32l1xx_usart.h"
-
 
 /*----- Macros -------------------------------------------------------------*/
+//Addresses of the MAX44009 Light Sensor
+#define LIGHT_SENSOR_ADDRESS 		0b10010100
+#define LIGHT_SENSOR_CONFIG			0x02
+#define LIGHT_SENSOR_LUX_H_BYTE		0x03
+#define LIGHT_SENSOR_LUX_L_BYTE		0x04
+#define LIGHT_SENSOR_LUX_H_L_BYTE	0x0304
+
 
 /*----- Data types ---------------------------------------------------------*/
 
 /*----- Function prototypes ------------------------------------------------*/
-extern void Usart1Init(void);
-//TODO  extern void UART1_Write(char *);
-extern void UART1_Write(char *Buffer); // replaced with this
+extern void LIGHT_SENSOR_init(void);
+extern double LIGHT_SENSOR_getLux(void);
 
 /*----- Data ---------------------------------------------------------------*/
 
@@ -33,4 +35,4 @@ extern void UART1_Write(char *Buffer); // replaced with this
 }
 #endif /* __cplusplus */
 
-#endif /* UART_PRINT_H_ */
+#endif /* LIGHT_SENSOR_H_ */

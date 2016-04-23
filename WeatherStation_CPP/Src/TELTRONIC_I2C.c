@@ -1,8 +1,3 @@
-
-#ifdef __cplusplus
-extern "C" {
-#endif /* __cplusplus */
-
 /*----- Header-Files -------------------------------------------------------*/
 #include <stm32l1xx.h>             	/* Processor STM32               */
 #include "TELTRONIC.h"          	/* Teltronic Module                         */
@@ -16,7 +11,6 @@ extern "C" {
 /*----- Data types ---------------------------------------------------------*/
 
 /*----- Function prototypes ------------------------------------------------*/
-static void TELTRONIC_I2C_Settings(I2C_TypeDef *I2Cx);
 static ERROR_CODES TELTRONIC_I2C_Timeout(I2C_TypeDef* I2Cx);
 
 /*----- Data ---------------------------------------------------------------*/
@@ -68,7 +62,8 @@ void TELTRONIC_I2C_Init(I2C_TypeDef *I2Cx) {
  * Settings for the selected I2C2
  * @param I2Cx
  */
-static void TELTRONIC_I2C_Settings(I2C_TypeDef *I2Cx) {
+// TODO removed static
+void TELTRONIC_I2C_Settings(I2C_TypeDef *I2Cx) {
 
    uint8_t i;
 
@@ -303,7 +298,3 @@ ERROR_CODES TELTRONIC_I2C_Read(I2C_TypeDef *I2Cx, uint8_t addr, uint16_t reg,
 
    return TELTRONIC_NO_ERROR;
 }
-
-#ifdef __cplusplus
-}
-#endif /* __cplusplus */
