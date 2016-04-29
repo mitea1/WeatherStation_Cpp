@@ -6,6 +6,10 @@
  */
 /*----- Header-Files -------------------------------------------------------*/
 #include "cpp_Task.hpp"
+#include "cpp_Light_Sensor.hpp"
+#include "cpp_TELTRONIC_I2C.hpp"
+#include "cpp_TELTRONIC_UART.hpp"
+#include "cpp_Humid_Temp_Sensor.hpp"
 /*----- Macros -------------------------------------------------------------*/
 
 /*----- Data types ---------------------------------------------------------*/
@@ -15,22 +19,22 @@
 /*----- Data ---------------------------------------------------------------*/
 
 /*----- Implementation -----------------------------------------------------*/
-
-BaseType_t create(TaskFunction_t pvTaskCode,
-		const char * const pcName,
-		unsigned short usStackDepth,
-		void *pvParameters,
-		UBaseType_t uxPriority,
-		TaskHandle_t *pxCreatedTask){
-	return xTaskCreate(pvTaskCode, pcName, usStackDepth, pvParameters, uxPriority, pxCreatedTask);
-}
-void cpp_Delay( const TickType_t xTicksToDelay){
-	vTaskDelay(xTicksToDelay);
-}
-void cpp_kDelayUntil( TickType_t *pxPreviousWakeTime,
-		const TickType_t xTimeIncrement){
-	vTaskDelayUntil(pxPreviousWakeTime, xTimeIncrement);
-}
+//
+//BaseType_t create(TaskFunction_t pvTaskCode,
+//		const char * const pcName,
+//		unsigned short usStackDepth,
+//		void *pvParameters,
+//		UBaseType_t uxPriority,
+//		TaskHandle_t *pxCreatedTask){
+//	return xTaskCreate(pvTaskCode, pcName, usStackDepth, pvParameters, uxPriority, pxCreatedTask);
+//}
+//void cpp_Delay( const TickType_t xTicksToDelay){
+//	vTaskDelay(xTicksToDelay);
+//}
+//void cpp_kDelayUntil( TickType_t *pxPreviousWakeTime,
+//		const TickType_t xTimeIncrement){
+//	vTaskDelayUntil(pxPreviousWakeTime, xTimeIncrement);
+//}
 
 //TaskBase::~TaskBase() {
 //	//#if INCLUDE_vTaskDelete
@@ -61,14 +65,24 @@ void cpp_kDelayUntil( TickType_t *pxPreviousWakeTime,
 //	//      vTaskDelay(10000);
 //	//#endif
 //}
-int TaskClass::cpp_Delay(void){
+//int TaskClass::cpp_Delay(void){
+//
+//}
+//
+//void TaskClass::cpp_Delay( const TickType_t xTicksToDelay ){
+//
+//}
+//void TaskClass::cpp_kDelayUntil( TickType_t *pxPreviousWakeTime,
+//		const TickType_t xTimeIncrement ){
+//
+//}
+//LightTask::task(void){
+//	uint64_t Lux = 0;
+//	for(;;){
+//		Lux = MyLightSensor.Light_Sensor_getLux();
+//		MyUART.Write((char*)Lux);
+//		vTaskDelay(500);
+//	}
+//
+//}
 
-}
-
-void TaskClass::cpp_Delay( const TickType_t xTicksToDelay ){
-
-}
-void TaskClass::cpp_kDelayUntil( TickType_t *pxPreviousWakeTime,
-		const TickType_t xTimeIncrement ){
-
-}
